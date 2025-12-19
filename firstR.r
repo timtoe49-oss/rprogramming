@@ -164,3 +164,26 @@ df5 |>
 # Add fit linear regression line(y ~ x)
 lm(df5$hockey ~ df5$soccer) |>
   abline()
+
+# US poppulation data (uspop)
+data("uspop")
+uspop
+# plot with default plot()
+plot(uspop)
+
+# plot with options
+uspop |>
+  plot(
+    main = "US population 1790-1970",
+    sub = "(Source: datasets::uspop)",
+    xlab = "Year",
+    ylab = "Population (in millions)"
+  )
+abline(v = 1930, col ="lightgrey")
+text(1930, 10, "1930", col = "red3")
+abline(v = 1940, col = "lightgray")
+text(1940, 10, "1940", col="red3")
+
+# plot with ts.plot()
+ts.plot(uspop) # Although this can be used for a single time series,
+               # plot is easier to use and is preferred.
